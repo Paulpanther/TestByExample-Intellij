@@ -1,18 +1,24 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.paulpanther.testbyexampleintellij</id>
-    <name>TestByExample-Intellij</name>
+    <name>TestByExample</name>
     <vendor>paulpanther</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>JUnit</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.paulpanther.testbyexampleintellij.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.paulpanther.testbyexampleintellij.services.MyProjectService"/>
+        <runLineMarkerContributor
+                implementationClass="com.testbyexample.ExampleRunLineMarkerContributor"
+                language="kotlin"
+                />
+        <runConfigurationProducer
+                implementation="com.testbyexample.ExampleRunConfigurationProducer"
+                />
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.paulpanther.testbyexampleintellij.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

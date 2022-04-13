@@ -1,4 +1,4 @@
-package com.github.paulpanther.testbyexampleintellij
+package com.testbyexample
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls
