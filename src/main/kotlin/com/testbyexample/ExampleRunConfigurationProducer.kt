@@ -3,13 +3,11 @@ package com.testbyexample
 import com.intellij.execution.actions.ConfigurationContext
 import com.intellij.execution.actions.LazyRunConfigurationProducer
 import com.intellij.execution.configurations.ConfigurationFactory
-import com.intellij.execution.junit.JUnitConfiguration
-import com.intellij.execution.junit.JUnitConfigurationType
 import com.intellij.openapi.util.Ref
 import com.intellij.psi.PsiElement
 import org.jetbrains.kotlin.psi.KtAnnotationEntry
 
-class ExampleRunConfigurationProducer: LazyRunConfigurationProducer<JUnitConfiguration>() {
+class ExampleRunConfigurationProducer: LazyRunConfigurationProducer<GradleConfig>() {
 
     override fun setupConfigurationFromContext(
         configuration: JUnitConfiguration,

@@ -1,7 +1,9 @@
 package com.testbyexample
 
+import com.intellij.execution.lineMarker.ExecutorAction
 import com.intellij.execution.lineMarker.RunLineMarkerContributor
 import com.intellij.icons.AllIcons
+import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.psi.PsiElement
 import org.jetbrains.kotlin.psi.KtAnnotationEntry
 
@@ -12,7 +14,8 @@ class ExampleRunLineMarkerContributor: RunLineMarkerContributor() {
             return null
         }
 
-        return object: Info(AllIcons.RunConfigurations.TestState.Run, {
+        val actions = ExecutorAction.getActions(Int.MAX_VALUE)
+        return object: Info(AllIcons.RunConfigurations.TestState.Run, actions, {
             "Run Example"
         }) {
 
