@@ -13,10 +13,14 @@
         <runLineMarkerContributor
                 implementationClass="com.testbyexample.ExampleRunLineMarkerContributor"
                 language="kotlin"
-                />
+        />
         <runConfigurationProducer
                 implementation="com.testbyexample.ExampleRunConfigurationProducer"
-                />
+        />
+        <codeInsight.inlayProvider
+                implementationClass="com.testbyexample.ExampleCodeHighlighter"
+                language="kotlin"
+        />
     </extensions>
 
     <applicationListeners>
