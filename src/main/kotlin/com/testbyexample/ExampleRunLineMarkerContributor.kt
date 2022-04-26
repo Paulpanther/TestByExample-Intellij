@@ -1,19 +1,21 @@
 package com.testbyexample
 
+import com.intellij.execution.TestStateStorage
 import com.intellij.execution.lineMarker.ExecutorAction
 import com.intellij.execution.lineMarker.RunLineMarkerContributor
 import com.intellij.icons.AllIcons
-import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.psi.PsiElement
+import com.intellij.psi.impl.source.tree.LeafPsiElement
+import com.intellij.psi.util.parentOfType
 import org.jetbrains.kotlin.psi.KtAnnotationEntry
 
 class ExampleRunLineMarkerContributor: RunLineMarkerContributor() {
     override fun getInfo(element: PsiElement): Info? {
-        val annotation = element as? KtAnnotationEntry ?: return null
-        if (annotation.shortName?.asString() != "Example") {
-            return null
-        }
+        val leaf = element as? LeafPsiElement ?: return null
+        if (leaf.text != "Example") return null
+        val annotation = leaf.parentOfType<KtAnnotationEntry>() ?: return null
 
+//        val state = TestStateStorage.getInstance(e.getProject()).getState(url)
         val actions = ExecutorAction.getActions(Int.MAX_VALUE)
         return object: Info(AllIcons.RunConfigurations.TestState.Run, actions, {
             "Run Example"
