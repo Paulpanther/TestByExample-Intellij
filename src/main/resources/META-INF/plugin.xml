@@ -10,15 +10,16 @@
     <depends>com.intellij.gradle</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <projectService
+                serviceImplementation="com.testbyexample.PluginService"/>
         <runLineMarkerContributor
                 implementationClass="com.testbyexample.ExampleRunLineMarkerContributor"
-                language="kotlin"
-                />
+                language="kotlin"/>
         <runConfigurationProducer
-                implementation="com.testbyexample.ExampleRunConfigurationProducer"
-                />
-        <syntaxHighlighter
-                implementationClass="com.testbyexample.ExampleSyntaxHighlighter" />
+                implementation="com.testbyexample.ExampleRunConfigurationProducer"/>
+        <codeInsight.inlayProvider
+                implementationClass="com.testbyexample.ExampleCodeHighlighter"
+                language="kotlin"/>
     </extensions>
 
     <applicationListeners>

@@ -11,9 +11,7 @@ import org.jetbrains.kotlin.psi.KtAnnotationEntry
 
 class ExampleRunLineMarkerContributor: RunLineMarkerContributor() {
     override fun getInfo(element: PsiElement): Info? {
-        val leaf = element as? LeafPsiElement ?: return null
-        if (leaf.text != "Example") return null
-        val annotation = leaf.parentOfType<KtAnnotationEntry>() ?: return null
+        val annotation = AnnotationPsiFinder.find(element) ?: return null
 
 //        val state = TestStateStorage.getInstance(e.getProject()).getState(url)
         val actions = ExecutorAction.getActions(Int.MAX_VALUE)
