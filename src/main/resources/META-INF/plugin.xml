@@ -17,6 +17,8 @@
         <runConfigurationProducer
                 implementation="com.testbyexample.ExampleRunConfigurationProducer"
                 />
+        <syntaxHighlighter
+                implementationClass="com.testbyexample.ExampleSyntaxHighlighter" />
     </extensions>
 
     <applicationListeners>
