@@ -17,9 +17,11 @@
                 language="kotlin"/>
         <runConfigurationProducer
                 implementation="com.testbyexample.ExampleRunConfigurationProducer"/>
-        <codeInsight.inlayProvider
-                implementationClass="com.testbyexample.ExampleCodeHighlighter"
-                language="kotlin"/>
+<!--        <codeInsight.inlayProvider-->
+<!--                implementationClass="com.testbyexample.ExampleCodeHighlighter"-->
+<!--                language="kotlin"/>-->
+        <multiHostInjector
+                implementation="com.testbyexample.ExampleLanguageInjector" />
     </extensions>
 
     <applicationListeners>

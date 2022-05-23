@@ -71,6 +71,7 @@ class ExampleCodeHighlighter: InlayHintsProvider<NoSettings> {
                     }
 
                 }.apply {
+                    component.putClientProperty(UIUtil.HIDE_EDITOR_FROM_DATA_CONTEXT_PROPERTY, true)
                     putClientProperty(UIUtil.HIDE_EDITOR_FROM_DATA_CONTEXT_PROPERTY, true)
                     setOneLineMode(false)
                     setPlaceholder(text)
